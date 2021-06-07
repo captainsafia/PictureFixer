@@ -1,0 +1,25 @@
+@typeparam TItem where TItem : PictureFixer.Shared.Image
+
+@if (Items == null)
+{
+    <div class="loading">
+        <img src="spinner.gif" alt="Loading indicator" /> Loading
+    </div>
+}
+else
+{
+    <div class="m-4 my-5 grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+        @foreach (var image in Items)
+        {
+            @ChildContent(image)
+        }
+    </div>
+}
+
+@code {
+    [Parameter]
+    public RenderFragment<TItem> ChildContent { get; set; }
+
+    [Parameter]
+    public IEnumerable<TItem> Items { get; set; }
+}
