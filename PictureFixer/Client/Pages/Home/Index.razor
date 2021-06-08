@@ -3,7 +3,7 @@
 @inject ComponentApplicationState PersistentData
 @inject HttpClient Http
 
-<ImageList Items="@images">
+<ImageList Items="@images" TItem="EditableImage">
     <ImageListItem Image="@context"/>
 </ImageList>
 
